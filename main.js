@@ -1,6 +1,9 @@
 let btnStart= document.getElementById('startbtn');
 let btnStop =  document.getElementById('stopbtn');
-      
+let timer1;
+let startTime, nowTime; 
+
+
 btnStart.addEventListener('click', function(){
   var re = document.getElementById('result');
   re.innerHTML = '経過秒数: 0秒';
