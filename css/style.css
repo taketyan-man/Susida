@@ -1,0 +1,149 @@
+/* cssリセット */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 16px;
+}
+body {
+  font-family: Verdana, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+header, footer, nav, menu, article, aside, section, details, figcaption, figure{
+  display: block;
+}
+ul, ol {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+}
+img {
+  vertical-align: bottom;
+}
+a img {
+  border: none;
+}
+strong {
+  font-weight: normal;
+}
+i{
+  font-style: normal;
+}
+
+/* index.html */
+/* header レイアウト */
+body {
+  background-color: rgb(232, 232, 232);
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  background-color: white;
+  padding: 4px;
+  display: flex;
+}
+
+.header-title{
+  font-size: 36px;
+  padding-left: 8px;
+}
+
+.header-nav {
+  margin-left: auto;
+  padding-right: 8px;
+}
+
+.header-nav li{
+  margin: 0;
+  padding: 0;
+  padding-top: 15%;
+  padding-right: 4px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.header-nav-active {
+  border-bottom: 4px solid orange;
+}
+
+/* main レイアウト */
+
+main {
+  margin: auto;
+  text-align: center;
+}
+
+
+.game-box {
+  /* border: 2px solid black; */
+  margin-top: 40px;
+  display: none;
+}
+
+.game-title {
+  margin-top: 120px;
+  padding: 60px;
+  background-color: white;
+}
+
+.startBtn {
+  margin-bottom: 8px;
+  font-size: 16px;
+  background-color: orange;
+}
+
+
+.blue{
+  color: rgb(94, 228, 255);
+}
+
+.game-start {
+  display: none;
+}
+
+.active{
+  display: block;
+}
+
+.box {
+  border-top: 4px solid gray;
+  height: 25%;
+  background-color: rgb(255, 255, 255);
+}
+
+.time-box-nav li {
+  display: inline-block;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.question-box {
+  background-color: rgb(239, 247, 255);  
+}
+
+.hint-box {
+  margin-bottom: 12px;
+  border-bottom: 4px solid gray;
+}
+
+
+.box-title{
+  margin-top: 12px;
+  margin-bottom: 24px;
+  text-decoration: underline;
+  text-decoration-color: orange;
+}
+
+.game-finish {
+  display: none;
+}
+
+.startBtn {
+  width: 50%;
+  height: 40px;
+  border-radius: 20px;
+  margin: auto;
+}

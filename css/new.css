@@ -1,0 +1,7 @@
+.new-box {
+  display: none;
+}
+
+.active{
+  display: block;
+}
