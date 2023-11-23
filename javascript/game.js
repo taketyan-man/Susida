@@ -38,8 +38,8 @@ let Q_No;
 let Qs = [];
 let qnum = 0;
 let Question = 0;
-
-
+let qs = document.getElementsByClassName('qs');
+let qsCmd = document.getElementsByClassName("qs-cmd");
 
 const controller = {};
 
@@ -60,6 +60,9 @@ function question_select10(){
   for (let step = 0; step < 10; step ++){
     Q_No = Math.floor( Math.random() * Q.length);
     Qs[step] = Q.splice(Q_No, 1);
+    //スコア時のスコア時の問題の表示
+    qs[step].innerHTML = Qs[step][0][0];
+    qsCmd[step].innerHTML = Qs[step][0][1];
   };
 }
 
@@ -72,7 +75,7 @@ function question_present(){
 }
 
 function jg_Key(){
-  if(controller[Question[3]]){ 
+  if(controller[Question[3]]){
     Q_No = Math.floor( Math.random() * Q.length);
     qnum += 1;
     if(qnum < 10){
@@ -86,6 +89,8 @@ function jg_Key(){
 
 function gameFinish(){
   document.getElementById('game-start').style.display = 'none';
+  document.getElementById('result').innerHTML = "";
+  document.getElementById('score').
   document.getElementById('game-finish').style.display = 'block';
 }
 
@@ -137,8 +142,23 @@ function push_Keydown(event, controller){
     };
   };
 };
-  
-question_select10();
-console.log(Qs)
-Question = Qs[qnum];
-console.log(Question)
+
+question_select10()
+function qsBox(obj){
+  if(hintCount == 0)
+  var el = document.getElementsByClassName('qs-box-switch');
+  var qs = document.getElementsByClassName('qs-opened-box')[0];
+  if(obj == el[0]){
+    el[0].classList.remove('switch-active');
+    qs.classList.add('switch-active');
+    el[1].classList.add('switch-active');
+  }else if(obj == el[1]){
+    el[0].classList.add('switch-active');
+    qs.classList.remove('switch-active');
+    el[1].classList.remove('switch-active');
+  }
+}
+
+function reloadBtn(){
+  window.location.reload();
+}

@@ -1,6 +1,8 @@
 let btnStart = document.getElementsByClassName("startBtn");
 let timer1, timer2;
 let startTime, nowTime, whileTime, questionStart;
+let hintCount = 0;
+
 function startBtn(){
   var re = document.getElementById('result');
   re.innerHTML = '経過秒数: 0s';
@@ -39,6 +41,7 @@ function showSecond(){
   var elapsedTime = Math.floor((nowTime - startTime) / 1000);
   var str = '経過秒数: ' + elapsedTime + 's';
   var re = document.getElementById('result');
+  hintCount += 1;
   re.innerHTML = str;
 }
 

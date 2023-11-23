@@ -1,14 +1,19 @@
 function pageSwitch(obj){
-  const element = document.getElementsByClassName('header-nav-active')[0];
-  element.classList.remove('header-nav-active');
+  const elements = document.getElementsByClassName('header-nav-active');
+  for (let step = 0; step < elements.length; step ++){
+    elements[step].classList.remove('header-nav-active');
+  }
   obj.classList.add('header-nav-active');
   jgSwitch(obj);
 }
 
 function jgSwitch(obj){
-  const element = document.getElementsByClassName('active')[0];
-  element.classList.remove('active');
+  const elements = document.getElementsByClassName('active');
+  for (let step = 0; step < elements.length; step ++){
+    elements[step].classList.remove('active');
+  }
   if(obj.innerHTML == "ゲーム"){
+    window.location.reload();
     const el = document.getElementsByClassName('game-box')[0];
     el.classList.add('active'); 
   }else if(obj.innerHTML == 'ログイン'){
