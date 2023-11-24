@@ -8,8 +8,8 @@
     <header><h2 class="header-title">コマンド達人</h2>
       <ul class="header-nav">
         <li onclick="pageSwitch(this)" class="header-nav-active">ゲーム</li>
-        <li onclick="pageSwitch(this)">ログイン</li>
-        <li onclick="pageSwitch(this)">新規登録</li>   
+        <!-- <li onclick="pageSwitch(this)">ログイン</li>
+        <li onclick="pageSwitch(this)">新規登録</li> -->
       </ul>
     </header>
     <main>
@@ -41,9 +41,9 @@
         <div class="score-box">
           <h1>スコア</h1>
           <div class="score-and-result-box">
-            <p class="score">S</p>
+            <p class="score" id="score"></p>
             <div  class="result">
-              <p id="result">クリア秒数</p>
+              <p id="finishresult">クリア秒数</p>
               <p id="hintcount">ヒント表示の数</p>
               <button class="reloadBtn" onclick="reloadBtn()">もう一度</button>
             </div>
@@ -74,12 +74,12 @@
         </div>
       </div>
     </div>
-    <div class="login-box">
+    <!-- <div class="login-box">
       <h1>ログイン</h1>
     </div>
     <div class="new-box">
       <h1>新規登録</h1>
-    </div>
+    </div> -->
     </main> 
     <script src="javascript/game.js"></script>
     <script src="javascript/timer.js"></script> 

@@ -145,7 +145,6 @@ function push_Keydown(event, controller){
 
 question_select10()
 function qsBox(obj){
-  if(hintCount == 0)
   var el = document.getElementsByClassName('qs-box-switch');
   var qs = document.getElementsByClassName('qs-opened-box')[0];
   if(obj == el[0]){

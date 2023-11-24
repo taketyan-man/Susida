@@ -3,6 +3,7 @@ let timer1, timer2;
 let startTime, nowTime, whileTime, questionStart;
 let hintCount = 0;
 
+// ゲーム開始
 function startBtn(){
   var re = document.getElementById('result');
   re.innerHTML = '経過秒数: 0s';
@@ -18,10 +19,35 @@ function startBtn(){
   question_present();
 };
 
+// ゲーム終了
 function stopBtn(){
   stopTimer();
   btnStart.disabled = false;
+  document.getElementById('game-start').style.display = "none";
+  var score = document.getElementById('score');
+  if(hintCount == 0){
+    score.innerHTML = "S";
+    score.classList.add('gold');
+    document.getElementById('game-finish').style.display = "block";
+  }else if(hintCount <= 2){
+    score.innerHTML = "A";
+    score.classList.add('red');
+    document.getElementById('game-finish').style.display = "block";
+  }else if(hintCount <= 4){
+    score.innerHTML = "B";
+    score.classList.add('sblue');
+    document.getElementById('game-finish').style.display = "block";
+  }else if(hintCount <= 7){
+    score.innerHTML = "C";
+    score.classList.add('yellowgreen');
+    document.getElementById('game-finish').style.display = "block";
+  }else if(hintCount <= 10){
+    score.innerHTML = "D";
+    score.classList.add('gray');
+    document.getElementById('game-finish').style.display = "block";
+  };
 };
+
 // タイマー開始
 function startTimer(){
   timer1 = setInterval(showSecond, 1000);
@@ -41,8 +67,8 @@ function showSecond(){
   var elapsedTime = Math.floor((nowTime - startTime) / 1000);
   var str = '経過秒数: ' + elapsedTime + 's';
   var re = document.getElementById('result');
-  hintCount += 1;
   re.innerHTML = str;
+  document.getElementById('finishresult').innerHTML = "クリア秒数: " + elapsedTime
 }
 
 // 問題の制限時間
@@ -54,5 +80,7 @@ function whileSecond(){
     var hi = document.getElementById('hint');
     hi.innerHTML = hintText;
     hi.style.display = "block";
+    hintCount += 1;
+    document.getElementById('hintcount').innerHTML = "ヒント表示回数: " + hintCount
   };
 }
