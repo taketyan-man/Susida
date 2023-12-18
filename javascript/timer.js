@@ -4,7 +4,7 @@ let startTime, nowTime, whileTime, questionStart;
 let hintCount = 0;
 
 // ゲーム開始
-function startBtn(){
+function startBtn(gameName){
   var re = document.getElementById('result');
   re.innerHTML = '経過秒数: 0s';
   startTime = new Date();
@@ -15,8 +15,9 @@ function startBtn(){
   document.getElementsByClassName("game-title")[0].style.display = 'none';
   document.getElementById("question").style.display = 'block';
   document.getElementById('game-start').style.display = "block";
-  question_select10();
-  question_present();
+  let gameMode = document.getElementsByClassName('game-title-active')[0].innerHTML
+  gameSelect(gameName, gameMode)
+
 };
 
 // ゲーム終了
@@ -69,6 +70,7 @@ function showSecond(){
   var re = document.getElementById('result');
   re.innerHTML = str;
   document.getElementById('finishresult').innerHTML = "クリア秒数: " + elapsedTime
+  document.getElementById('misCount').innerHTML = "ミス: " + miss
 }
 
 // 問題の制限時間

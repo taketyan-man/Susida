@@ -1,4 +1,4 @@
-let Q = [
+var Q_vscode = [
   //cmd + key
   ['ファイルを開く', 'Cmd + O', 0, "KeyO"], 
   //['新しいファイルを開く', 'Cmd + N', 0, "KeyN"], 
@@ -34,14 +34,17 @@ let Q = [
   ['選択行を下にコピー', 'Option + Shift + 下矢印キー', 5, 'ArrowDown']
   ];
 
+let Q
 let Q_No;
 let Qs = [];
 let qnum = 0;
 let Question = 0;
 let qs = document.getElementsByClassName('qs');
 let qsCmd = document.getElementsByClassName("qs-cmd");
+let miss = 0;
 
-const controller = {};
+
+var controller = {};
 
 document.addEventListener('keydown', (event) => {
   event.preventDefault();
@@ -56,14 +59,40 @@ document.addEventListener('keyup', (event) => {
   controller[event.code] = false;
 });
 
+function gameSelect(gameName, gameMode){
+  if(gameName === "vscode"){
+    Q = Q_vscode
+    if(gameMode === "テスト"){
+      console.log('こんにちは');
+      question_select10();
+      question_present();
+    }else if(gameMode === "無限"){
+      question_selectinfinity();
+      question_present();
+    };
+  };
+};
+
 function question_select10(){
+  var qsFirst = document.getElementById('qs-opened-box');
   for (let step = 0; step < 10; step ++){
+    var 
     Q_No = Math.floor( Math.random() * Q.length);
     Qs[step] = Q.splice(Q_No, 1);
     //スコア時のスコア時の問題の表示
+    //終了画面に問題とコマンドを表示する
+    let add_code = '<div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>'
+    qsFirst.insertAdjacentHTML( 'beforeend', add_code);   
+    let qs = document.getElementsByClassName('qs');
+    let qsCmd = document.getElementsByClassName("qs-cmd"); 
     qs[step].innerHTML = Qs[step][0][0];
-    qsCmd[step].innerHTML = Qs[step][0][1];
+    qsCmd[step].innerHTML = Qs[step][0][1];  
   };
+}
+
+function question_selectinfinity(){
+  Q_No = Math.floor( math.random() * Q.length);
+  Qs[qnum] = Q[Q_No];
 }
 
 function question_present(){
@@ -76,21 +105,27 @@ function question_present(){
 
 function jg_Key(){
   if(controller[Question[3]]){
+    controller = {};
     Q_No = Math.floor( Math.random() * Q.length);
     qnum += 1;
-    if(qnum < 10){
+    gameMode = document.getElementsByClassName('game-title-active')[0].innerHTML
+    if(gameMode === "テスト"){
+      if(qnum < 10){
+        question_present();
+      }else if(qnum == 10){
+        stopBtn();
+        gameFinish();
+        console.log(miss);
+      }
+    }else if(gameMode === "無限"){
       question_present();
-    }else if(qnum == 10){
-      stopBtn();
-      gameFinish();
-    }
+    };
   };
 };
 
 function gameFinish(){
   document.getElementById('game-start').style.display = 'none';
   document.getElementById('result').innerHTML = "";
-  document.getElementById('score').
   document.getElementById('game-finish').style.display = 'block';
 }
 
@@ -101,49 +136,69 @@ function push_Keydown(event, controller){
       jg_Key();
     }else if(controller["MeteRight"]){
       jg_Key();
-    };
+    }else{
+      miss += 1
+    }
   }else if(Question[2] == 1){  
     if(controller["ControlLeft"]){
       jg_Key();
-    };
+    }else {
+      miss += 1
+    }
   }else if(Question[2] == 2){
     if(controller["AltLeft"]){
       jg_Key();
-    };
+    }else {
+      miss += 1
+    }
   }else if(Question[2] == 3){
     if(controller["ShiftRight"]){
       if(controller["MetaLeft"]){
         jg_Key();
       }else if(controller["MetaRight"]){
         jg_Key();
-      };
+      }else {
+        miss += 1
+      }
     }else if(controller["ShiftLeft"]){
       if(controller["MetaLeft"]){
         jg_Key();
       }else if(controller["MetaRight"]){
         jg_Key();
       };
-    };
+    }else {
+      miss += 1
+    }
   }else if(Question[2] == 4){
     if(controller["AltLeft"]){
       if(controller["MetaLeft"]){
         jg_Key();
       }else if(controller["MetaRight"]){
         jg_Key();
-      };
-    };
+      }else {
+        miss += 1
+      }
+    }else {
+      miss += 1
+    }
   }else if(Question[2] == 5){
     if(controller["AltLeft"]){
       if(controller["ShiftRight"]){
         jg_Key();
       }else if(controller["ShiftLeft"]){
         jg_Key();
-      };
-    };
-  };
+      }else {
+        miss += 1
+      }
+    }else {
+      miss += 1
+    }
+  }else {
+    miss += 1
+  }
 };
 
-question_select10()
+
 function qsBox(obj){
   var el = document.getElementsByClassName('qs-box-switch');
   var qs = document.getElementsByClassName('qs-opened-box')[0];

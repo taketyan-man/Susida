@@ -91,6 +91,23 @@ main {
   background-color: white;
 }
 
+.game-title-nav-box{
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.game-title-nav {
+  padding: 0 8px;
+  font-size: 24px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.game-title-active{
+  background-color: orange;
+}
+
 .startBtn {
   margin-bottom: 8px;
   font-size: 16px;
@@ -224,6 +241,11 @@ main {
 
 .switch-active{
   display: block;
+}
+
+.arrowup {
+  padding-top: 12px;
+  font-size: 24px;
 }
 
 .active{

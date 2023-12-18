@@ -17,7 +17,8 @@
     <div class="game-box active">
       <div class="game-title">
         <h1 id="title"><a class="blue">VScode</a><br>ショートカットキー集</h1>
-        <button class="startbtn" onclick="startBtn()">START</button>
+        <ul class="game-title-nav-box"><li onclick="gameModeSelect(this)" class="game-title-nav">無限</li><li onclick="gameModeSelect(this)" class="game-title-nav game-title-active">テスト</li></ul>
+        <button class="startbtn" onclick="startBtn('vscode')">START</button>
       </div>
       <div class="game-start" id="game-start">
         <div class="time-box box">
@@ -56,25 +57,15 @@
             <p>⬇︎</p>
           </div>
           <div class="qs-opened-box">
-            <div class="qs-text-first"><p>問題</p><p style="border-left: 1px solid black;">コマンド</p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
-            <div class="qs-text"><p class="qs"></p><p class="qs-cmd"></p></div>
+            <div id="qs-opened-box">
+              <div class="qs-text-first" id="qs-text-first"><p>問題</p><p style="border-left: 1px solid black;">コマンド</p></div>
+            </div>
+            <div class="qs-box-switch" onclick="qsBox(this)">
+              <p class="arrowup">⬆︎</p>
+            </div>
           </div>
-          <div class="qs-box-switch" onclick="qsBox(this)">
-             <p>⬆︎</p>
-          </div>
-         
         </div>
       </div>
-    </div>
     <!-- <div class="login-box">
       <h1>ログイン</h1>
     </div>
