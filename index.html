@@ -17,8 +17,8 @@
     <div class="game-box active">
       <div class="game-title">
         <h1 id="title"><a class="blue">VScode</a><br>ショートカットキー集</h1>
-        <ul class="game-title-nav-box"><li onclick="gameModeSelect(this)" class="game-title-nav">無限</li><li onclick="gameModeSelect(this)" class="game-title-nav game-title-active">テスト</li></ul>
-        <button class="startbtn" onclick="startBtn('vscode')">START</button>
+        <ul class="game-title-nav-box"><li onclick="gameModeSelect(this)" class="game-title-nav">無限</li><li onclick="gameModeSelect(this)" class="game-title-nav game-title-active">試験</li></ul>
+        <button class="startbtn" onclick="startBtn('vscode')">開始</button>
       </div>
       <div class="game-start" id="game-start">
         <div class="time-box box">
@@ -38,6 +38,7 @@
           <h2  class="box-title">答え</h2>
           <h1 class="hint" id="hint">答えがここに表示されるよ</h1>
         </div>
+        <button class="finishBtn" id ="finishBtn" onclick="stopBtn()">終了</button>
       </div>
       <div class="game-finish" id="game-finish">
         <div class="score-box">

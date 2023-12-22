@@ -15,8 +15,8 @@ function startBtn(gameName){
   document.getElementsByClassName("game-title")[0].style.display = 'none';
   document.getElementById("question").style.display = 'block';
   document.getElementById('game-start').style.display = "block";
-  let gameMode = document.getElementsByClassName('game-title-active')[0].innerHTML
-  gameSelect(gameName, gameMode)
+  let gameMode = document.getElementsByClassName('game-title-active')[0].innerHTML;
+  gameSelect(gameName, gameMode);
 
 };
 
