@@ -21,33 +21,40 @@ function startBtn(gameName){
 };
 
 // ゲーム終了
-function stopBtn(){
+function stopBtn(finish){
   stopTimer();
   btnStart.disabled = false;
   document.getElementById('game-start').style.display = "none";
   var score = document.getElementById('score');
-  if(hintCount == 0){
-    score.innerHTML = "S";
-    score.classList.add('gold');
+  if(finish == 'finish') {
+    score.innerHTML = "Fin";
     document.getElementById('game-finish').style.display = "block";
-  }else if(hintCount <= 2){
-    score.innerHTML = "A";
-    score.classList.add('red');
-    document.getElementById('game-finish').style.display = "block";
-  }else if(hintCount <= 4){
-    score.innerHTML = "B";
-    score.classList.add('sblue');
-    document.getElementById('game-finish').style.display = "block";
-  }else if(hintCount <= 7){
-    score.innerHTML = "C";
-    score.classList.add('yellowgreen');
-    document.getElementById('game-finish').style.display = "block";
-  }else if(hintCount <= 10){
-    score.innerHTML = "D";
-    score.classList.add('gray');
-    document.getElementById('game-finish').style.display = "block";
+  }else{
+    if(hintCount == 0){
+      score.innerHTML = "S";
+      score.classList.add('gold');
+      document.getElementById('game-finish').style.display = "block";
+    }else if(hintCount <= 2){
+      score.innerHTML = "A";
+      score.classList.add('red');
+      document.getElementById('game-finish').style.display = "block";
+    }else if(hintCount <= 4){
+      score.innerHTML = "B";
+      score.classList.add('sblue');
+      document.getElementById('game-finish').style.display = "block";
+    }else if(hintCount <= 7){
+      score.innerHTML = "C";
+      score.classList.add('yellowgreen');
+      document.getElementById('game-finish').style.display = "block";
+    }else if(hintCount <= 10){
+      score.innerHTML = "D";
+      score.classList.add('gray');
+      document.getElementById('game-finish').style.display = "block";
+    };
   };
-};
+
+  }
+  
 
 function stopBtnInfinity(){
   stopTimer();
