@@ -49,6 +49,12 @@ function stopBtn(){
   };
 };
 
+function stopBtnInfinity(){
+  stopTimer();
+  btnStart.disabled = false;
+  document.getElementById('game-start').style.display = "none";
+}
+
 // タイマー開始
 function startTimer(){
   timer1 = setInterval(showSecond, 1000);

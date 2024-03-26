@@ -63,7 +63,7 @@ document.addEventListener('keyup', (event) => {
 });
 
 function gameSelect(gameName, gameMode){
-  var gameName = gameName
+  gameName = gameName
   if(gameName === "vscode"){
     Q = Q_vscode.slice();
     Q_l = Q_vscode.length
